@@ -104,3 +104,27 @@ var Another = {
 Another.cool();
 console.log(Another.greeting); // 'hello world!'
 console.log(Another.count); //1
+
+/*
+ * 2. 原型风格
+ */
+function Foo(name){
+  this.name = name;
+}
+Foo.prototype.myName = function(){
+  return this.name;
+}
+function Bar(name, label){
+  Foo.call(this, name);
+  this.label = label;
+}
+// 关联到Foo.prototype
+// es6写法：Object.setPrototypeOf(Bar.prototype, Foo.prototype);
+Bar.prototype = Object.create(Foo.prototype);
+
+Bar.prototype.myLabel = function(){
+  return this.label;
+}
+var a = new Bar('a', 'obj a');
+a.myName();//a
+a.myLabel();//obj a
