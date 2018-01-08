@@ -48,7 +48,7 @@ for (var i = 0; i < 5; i++) {
  * 5. Promise
  */
 setTimeout(function(){
-  console.log(1)
+  console.log(1);// setTimeout的callback放在task里
 },0);
 new Promise(function executor(resolve){
   console.log(2);
@@ -57,7 +57,7 @@ new Promise(function executor(resolve){
   }
   console.log(3);
 }).then(function(){
-  console.log(4);
+  console.log(4); // 大部分浏览器是把promise的callback放在microtask里
 });
 console.log(5);
 //2,3,5,4,1
