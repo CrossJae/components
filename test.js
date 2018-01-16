@@ -1,21 +1,12 @@
-/*
- * 1-4. 隐式混入
- */
-var Something = {
-  cool: function(){
-    this.greeting = 'hello world!';
-    this.count = this.count?this.count+1:1;
+var x = 0;
+var foo = {
+  x: 1,
+  bar: function(){
+    console.log(this.x);
   }
 }
-Something.cool();
-console.log(Something.greeting); // 'hello world!'
-console.log(Something.count); //1
+var a = foo.bar;
+// foo.bar();
 
-var Another = {
-  cool: function(){
-    Something.cool.call(this);
-  }
-}
-Another.cool();
-console.log(Another.greeting); // 'hello world!'
-console.log(Another.count); //1
+// a();
+console.log(window.x)
