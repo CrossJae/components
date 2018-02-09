@@ -31,7 +31,7 @@ function unique(arr){
   return temp;
 }
 
-// new Map()
+// new Map(), Map是一种数据类型，类似对象，允许把对象作为key，形成value: value的方式
 function unique(arr){
   const temp = new Map();
   return arr.filter(function(num){
