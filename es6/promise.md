@@ -34,8 +34,12 @@
   })
   ```
 9. Promise.prototype中包含三个方法
-  1. then()
-  2. finally()
-  3. catch()。Promise.prototype.call()是.then(null, rejection)的别名，错误时的回调函数
+  * then()
+  * finally() 无论resolve还是reject都执行
+  * catch()。Promise.prototype.call()是.then(null, rejection)的别名，错误时的回调函数
 10. Promise内部错误不会影响外部，如果没有catch捕获错误，那就不会传递到外层，甚至catch本身也会发生错误。
 11. Promise.all()
+12. Promise.race() , race本身有竞速的意思，所以是参数里所有的promise对象谁率先改变状态（resolve / reject），就用谁的状态
+13. Promise.resolve()
+14. Promise.reject()
+15. Promise.try()
