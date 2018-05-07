@@ -62,13 +62,67 @@
 // }
 
 //
-const p1 = new Promise(function(resolve, reject){
-  setTimeout(function(){
-    reject(new Error('failure'))
-  }, 3000);
-});
-const p2 = new Promise(function(resolve, reject){
-  setTimeout(function(){
-    resolve(p1)
-  }, 1000);
+// const p1 = new Promise(function(resolve, reject){
+//   setTimeout(function(){
+//     reject(new Error('failure'))
+//   }, 3000);
+// });
+// const p2 = new Promise(function(resolve, reject){
+//   setTimeout(function(){
+//     resolve(p1)
+//   }, 1000);
+// })
+
+// 180507
+// function test(resolve, reject){
+//   let flag = 2;
+//   if(flag === 1){
+//     resolve('200 ok');
+//   }else{
+//     reject('error');
+//   }
+// }
+
+// let p1 = new Promise(test);
+// let p2 = p1.then(function(result){
+//   console.log('成功：' + result);
+// })
+// let p3 = p2.catch(function(reason){
+//   console.log('失败：' + reason);
+// })
+
+
+function cook(){
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){
+      console.log('做饭完毕');
+      resolve('鸡蛋炒饭');
+    }, 500)
+  });
+
+}
+
+function eat(data){
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){
+      console.log('吃完：' + data);
+      resolve('碗和筷子');
+    }, 500)
+  });
+}
+
+function wash(data){
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){
+      console.log('洗了：' + data);
+      resolve('finish!');
+    }, 500)
+  })
+}
+
+cook()
+.then(eat)
+.then(wash)
+.then(function(data){
+  console.log(data);
 })
