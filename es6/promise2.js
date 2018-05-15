@@ -73,7 +73,7 @@
 //   }, 1000);
 // })
 
-// 180507
+// ---------------------180507
 // function test(resolve, reject){
 //   let flag = 2;
 //   if(flag === 1){
@@ -91,38 +91,84 @@
 //   console.log('失败：' + reason);
 // })
 
+// ---------------------180507
+// function cook(){
+//   return new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//       console.log('做饭完毕');
+//       resolve('鸡蛋炒饭');
+//     }, 500)
+//   });
 
-function cook(){
-  return new Promise(function(resolve, reject){
-    setTimeout(function(){
-      console.log('做饭完毕');
-      resolve('鸡蛋炒饭');
-    }, 500)
-  });
+// }
 
-}
+// function eat(data){
+//   return new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//       console.log('吃完：' + data);
+//       resolve('碗和筷子');
+//     }, 500)
+//   });
+// }
 
-function eat(data){
-  return new Promise(function(resolve, reject){
-    setTimeout(function(){
-      console.log('吃完：' + data);
-      resolve('碗和筷子');
-    }, 500)
-  });
-}
+// function wash(data){
+//   return new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//       console.log('洗了：' + data);
+//       resolve('finish!');
+//     }, 500)
+//   })
+// }
 
-function wash(data){
-  return new Promise(function(resolve, reject){
-    setTimeout(function(){
-      console.log('洗了：' + data);
-      resolve('finish!');
-    }, 500)
+// cook()
+// .then(eat)
+// .then(wash)
+// .then(function(data){
+//   console.log(data);
+// })
+
+// ---------------------180507
+function getUserId(){
+  return new Promise(function(resolve){
+    Y.io('/userid', {
+      on: {
+        success: function(id, res){
+          resolve(JSON.parse(res).id);
+        }
+      }
+    })
   })
 }
-
-cook()
-.then(eat)
-.then(wash)
-.then(function(data){
-  console.log(data);
+getUserId().then(function(id){
+  // do sth with id
 })
+
+// 简单的Promise实现
+function Promise(fn){
+  var value = null,
+      deferreds = [];
+
+  this.then = function(onFulfilled){
+    deferreds.push(onFulfilled);
+  }
+  function resolve(value){
+    deferreds.forEach(function(deferred){
+      deferred(value);
+    })
+  }
+  fn(resolve);
+}
+
+
+// ---------------------180515
+function getURLCallback(URL, callback){
+	var req = new XMLHttpRequest();
+	req.open('GET', URL, true);
+	req.onload = function(){
+		if(){
+			callback(null, req.responseText);statusText
+		}else{
+			callback(new Error(req.statusText), req.response)
+		}
+	}	
+}
