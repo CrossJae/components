@@ -177,7 +177,7 @@
 // .then(function(value){
 //   console.log(value);
 // })
-
+ 
 
 // ---------------------180517fetch
 function test(){
