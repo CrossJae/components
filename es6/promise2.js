@@ -128,47 +128,68 @@
 // })
 
 // ---------------------180507
-function getUserId(){
-  return new Promise(function(resolve){
-    Y.io('/userid', {
-      on: {
-        success: function(id, res){
-          resolve(JSON.parse(res).id);
-        }
-      }
-    })
+// function getUserId(){
+//   return new Promise(function(resolve){
+//     Y.io('/userid', {
+//       on: {
+//         success: function(id, res){
+//           resolve(JSON.parse(res).id);
+//         }
+//       }
+//     })
+//   })
+// }
+// getUserId().then(function(id){
+//   // do sth with id
+// })
+
+// // 简单的Promise实现
+// function Promise(fn){
+//   var value = null,
+//       deferreds = [];
+
+//   this.then = function(onFulfilled){
+//     deferreds.push(onFulfilled);
+//   }
+//   function resolve(value){
+//     deferreds.forEach(function(deferred){
+//       deferred(value);
+//     })
+//   }
+//   fn(resolve);
+// }
+
+// ---------------------180517
+
+// var winner = new Promise(function(resolve, reject){
+//   setTimeout(function(){
+//     console.log('1-1 this is winner');
+//     resolve('1-2 this is winner');
+//   },4);
+// })
+// var loser = new Promise(function(resolve, reject){
+//   setTimeout(function(){
+//     console.log('2-1 this is loser');
+//     resolve('2-2 this is loser');
+//   }, 1000);
+// })
+// Promise.all([winner, loser])
+// .then(function(value){
+//   console.log(value);
+// })
+
+
+// ---------------------180517fetch
+function test(){
+  return new Promise(function(resolve, reject){
+    window['inner'] = function(){
+      resolve('this is inner');
+    }
   })
 }
-getUserId().then(function(id){
-  // do sth with id
+
+test().then(function(value){
+  console.log(value);
 })
 
-// 简单的Promise实现
-function Promise(fn){
-  var value = null,
-      deferreds = [];
-
-  this.then = function(onFulfilled){
-    deferreds.push(onFulfilled);
-  }
-  function resolve(value){
-    deferreds.forEach(function(deferred){
-      deferred(value);
-    })
-  }
-  fn(resolve);
-}
-
-
-// ---------------------180515
-function getURLCallback(URL, callback){
-	var req = new XMLHttpRequest();
-	req.open('GET', URL, true);
-	req.onload = function(){
-		if(){
-			callback(null, req.responseText);statusText
-		}else{
-			callback(new Error(req.statusText), req.response)
-		}
-	}	
-}
+inner();
