@@ -9,9 +9,13 @@
 ### Promise基础知识
 
 1. 为什么出现Promise
-* 解决了回调地狱的难以理解、编写、修改的问题
-
+    * 解决了回调地狱的难以理解、编写、修改的问题
 2. 特点
-* 一旦开始，不会中断
-* 链式调用`.then`
-* 可以捕捉错误`.then(null, onRejected)`或者`.catch()`
+    * 一旦建立，立即执行，无法取消
+    * 链式调用`.then`
+    * 可以捕捉错误`.then(null, onRejected)`或者`.catch()`
+3. 状态
+    1. pedding
+    2. fulfilled
+    3. rejected
+    * 其中，fulfilled和rejected都是已定型状态`resolved`，一旦定型就不会改变
