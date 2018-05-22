@@ -1,6 +1,3 @@
-return string.splite('');
-
-
 import asciiToArray from './asciiToArray.js'
 import hasUnicode from './hasUnicode.js'
 import unicodeToArray from './unicodeToArray.js'

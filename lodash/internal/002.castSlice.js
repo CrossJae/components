@@ -12,7 +12,7 @@ import slice from '../slice.js'
 function castSlice(array, start, end) {
   const { length } = array
   end = end === undefined ? length : end; // 未传end取len
-  return (!start && end >= length) ? array : slice(array, start, end)
+  return (!start && end >= length) ? array : slice(array, start, end);// 未传start/end 返回array本身
 }
 
 export default castSlice
