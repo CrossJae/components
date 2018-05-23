@@ -33,7 +33,11 @@ hw.next(); // {value:'hello', done: false}
   * 异步编程解决方案
 2. 特点
   * 暂停
+<<<<<<< HEAD
   * 调用Generator函数时，并不执行
   * 返回一个遍历器对象，每次遍历函数内部的每个状态
   * 碰到return和yeild都会执行
+=======
+  * 返回一个遍历器对象
+>>>>>>> parent of a2d78ca... docs:
 
