@@ -26,3 +26,12 @@ hw.next(); // {value:'hello', done: false}
 * 控制流管理
 * 部署Iterator接口
 * 作为数据结构
+
+
+### 博客
+1. Generator为什么出现？
+  * 异步编程解决方案
+2. 特点
+  * 暂停
+  * 返回一个遍历器对象
+
