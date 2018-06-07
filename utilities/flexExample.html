@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex-两列和不固定内容垂直居中</title>
+    <link rel="stylesheet" href="./normal.css" />
+</head>
+<body>
+    <h1>flex布局</h1>
+    <!-- 两列弹性布局 s -->
+    <style>
+        .a-box{
+            width: 200px;
+            height: 200px;
+            background: #eee;
+            border: 1px solid #ddd;
+        }
+        .a-box ul{
+            /* main */
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+        .a-box li{
+            width: 40%;
+            height: 48%;
+            background: rgba(39,116,203,0.5);
+            margin: 10px 0;
+        }
+    </style>
+    <section>
+        <h2>两列弹性布局</h2>
+        <div class="a-box">
+            <ul>
+                <li>
+                    <span>可放入img</span>
+                </li>
+                <li>
+                    <span>可放入img</span>
+                </li>
+                <li>
+                    <span>可放入img</span>
+                </li>
+                <li>
+                    <span>可放入img</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- 两列弹性布局 e -->
+
+    <!-- 垂直居中 s -->
+    <style>
+        .b-box{
+            /* main */
+            display: flex;
+            justify-content: center; /* 主轴对齐方式 */
+            align-items: center; /* 交叉轴对齐方式 */
+
+            width: 200px;
+            height: 200px;
+            background: #eee;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <section>
+        <h2>垂直居中</h2>
+        <div class="b-box">
+            <ul>
+                <li>内容1</li>
+                <li>内容2</li>
+            </ul>
+        </div>
+    </section>
+    <!-- 垂直居中 e -->
+</body>
+</html>

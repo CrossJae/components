@@ -1,12 +1,19 @@
-var x = 0;
-var foo = {
-  x: 1,
-  bar: function(){
-    console.log(this.x);
-  }
+function person(pname){
+  this.name = pname;
 }
-var a = foo.bar;
-// foo.bar();
 
-// a();
-console.log(window.x)
+const Messi = new person('Messi');
+
+function say(){
+  console.log('hi');
+}
+
+const oldObj = {
+  a: say,
+  b: new Array(1),
+  c: new RegExp('ab+c', 'i'),
+  d: Messi
+}
+
+const newObj = JSON.parse(JSON.stringify(oldObj));
+console.log(oldObj, newObj);
