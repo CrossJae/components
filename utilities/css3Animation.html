@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3Animation</title>
+    <link rel="stylesheet" href="./normal.css" />
+</head>
+<body>
+    <h1>css3 Animation 简单应用</h1>
+    <!-- 缩放 s -->
+    <section>
+        <style>
+            .scale{
+                width: 50px;
+                height: 50px;
+                background: #6cd81c;
+                /* main */
+                animation: scale ease-in-out 2s infinite;
+            }
+            @keyframes scale{
+                0%{
+                    transform: scale3d(1, 1, 1)
+                }
+                50%{
+                    transform: scale3d(1.2, 1.2, 1.2)
+                }
+            }
+        </style>
+        <h2>1. 缩放</h2>
+        <div class="scale">缩放元素</div>
+    </section>
+    <!-- 缩放 e -->
+    <!-- 透明 s -->
+    <section>
+        <style>
+            .opa{
+                width: 50px;
+                height: 50px;
+                background: #6cd81c;
+                /* main */
+                animation: opa ease-in-out 2s infinite;
+            }
+            @keyframes opa{
+                0%{
+                    opacity: 1;
+                }
+                50%{
+                    opacity: 0;
+                }
+            }
+        </style>
+        <h2>2. 透明</h2>
+        <div class="opa">透明元素</div>
+    </section>
+    <!-- 透明 e -->
+
+    <!-- 单行滚动字 s -->
+    <section>
+        <style>
+            .move{
+                width: 200px;
+                height: 30px;
+                line-height: 30px;
+                overflow: hidden;
+                background: #6cd81c;
+            }
+            .move ul{
+                white-space: nowrap;
+                animation: move linear 4s infinite; /* 速度根据内容改变 */
+            }
+            .move li{
+                display: inline-block;
+            }
+            @keyframes move{
+                from{
+                    transform: translateX(200px); /* 容器宽度，可变 */
+                }
+                to{
+                    transform: translateX(-100%);
+                }
+            }
+        </style>
+        <h2>3. 单行滚动字</h2>
+        <div class="move">
+            <ul>
+                <li>内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+    </section>
+    <!-- 单行滚动字 e -->
+</body>
+</html>
