@@ -1,3 +1,3 @@
 ### JS常用方法
 
-* cookie - cookie.js
+/utilities -- 业务常用代码
