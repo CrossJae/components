@@ -5,3 +5,4 @@
 * symbol
 * Map
 * set/get
+* Class
