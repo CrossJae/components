@@ -110,4 +110,61 @@
     ```
 
 
-### 继承
+### 继承`extends`
+* `Object.getPrototypeOf()` 从子类上获取父类
+    ```
+    Object.getPrototypeOf(ColorPoint) === Point
+    ```
+* `super`
+    * super当作函数，代表父类的构造函数
+        * 子类的构造函数必须先执行一次super函数，代表调用父类的构造函数
+            ```
+            class A {}
+            class B extends A {
+                constructor(){
+                    super();
+                }
+            }
+            ```
+            super()在这里相当于，`A.prototype.constructor.call(this)`
+        * 只能在子类的构造函数中调用，其他地方均会报错
+    * super当作对象
+        * 在普通方法中，指向父类的原型对象，相当于`A.prototype`
+            ```
+            class A {
+                p(){
+                    return 2;
+                }
+            }
+            class B extends A {
+                constructor(){
+                    super();
+                    console.log(super.p()); //2
+                }
+            }
+            let b = new B();
+            ```
+        * 静态方法中，指向父类
+* Class作为构造函数的语法糖，同时有prototype属性和__proto__属性，因此同时存在两条继承链
+    * 作为一个对象，子类B的原型__proto__属性是父类A
+    * 作为一个构造函数，子类B的原型对象prototype属性是父类的原型对象prototype属性的实例
+    ```
+    class A {}
+    class B extends A {}
+    B.__proto__ === A //true
+    B.prototype.__proto__ = A.prototype //true
+    ```
+
+### 原生构造函数
+* Boolean()
+* Number()
+* String()
+* Array()
+* Date()
+* Function()
+* RegExp()
+* Error()
+* Object()
+* ES5是先建子类的实例对象this，再将父类的属性添加到子类上，由于父类的内部属性无法获取，导致无法继承原生的构造函数
+* ES6是先建父类的实例对象this，再用子类的构造函数修饰this，使得父类的所有行为都可以继承。
+    
