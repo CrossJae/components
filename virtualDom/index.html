@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>virtual dom</title>
+</head>
+<body>
+    <div id="real-container">
+        <p>real dom</p>
+        <div>cannot update</div>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+    </div>
+    <script>
+        const tree = Element('div', {
+            id: 'virtual-container'},
+            [
+                Element('p', {}, ['virtual dom'])
+            ]
+        );
+        const root = tree.render();// 将js对象映射成真实的dom
+        document.getElementById('virtualDom').appendChild(root);
+
+        function Element(tagName, props, children){
+            if(!(this instanceof Element)){//容错，未使用构造函数
+                return new Element(tagName, props, children)
+            }
+            this.tagName = tagName;
+            this.props = props || {};
+            this.children = children || [];
+            this.key = props ? props.key : undefined;
+
+            let count = 0;
+            this.children.forEach((cihld) => {
+                if(child instanceof Element){
+                    count += child.count;
+                }
+                count++;
+            })
+            this.count = count;
+        }
+
+        Element.prototype.render = function(){
+            const el = document.createElement(this.tagName);
+            const props = this.props;
+            for(const propName in props){
+                setAttr(el, propName, props[propName]);
+            }
+            this.children.forEach((child)=>{
+                const childEl = (child instanceof Element) ? child.render() : document.createTextNode(child);
+                el.appendChild(childEl);
+            })
+            return el;
+        }
+    </script>
+</body>
+</html>
