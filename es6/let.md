@@ -1,4 +1,4 @@
-#let / const
+# let / const
 1. let命令
     * 基本用法：只在代码块内有效
     * 不存在变量提升（跟var相比）
