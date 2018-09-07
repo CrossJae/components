@@ -1,7 +1,7 @@
 # Generator「生成器」
 
 * 异步编程解决方案（js真的在异步这一块做了很多努力啊）
-* "暂停"是generator的本质
+* "暂停yield"是generator的本质
 * Generator是一个状态机，封装了多个内部状态。Generator函数返回一个 **遍历器对象**，一次遍历函数内部的每一个状态
 * 与普通函数对比
   * function关键字与函数名之间有个星号`function* helloWorldGenerator(){...}`
