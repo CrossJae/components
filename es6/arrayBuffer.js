@@ -19,4 +19,4 @@ for(let i = 0; i<int32View.length; i++){
  * 所以buffer可以写入8个整数
  */
 const int16View = new Int16Array(buffer);
-console.log(int16View);
+console.log(int16View.BYTES_PER_ELEMENT);
