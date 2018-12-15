@@ -1,34 +1,21 @@
-// function person(pname){
-//   this.name = pname;
-// }
+var person = (function(){
+    // console.log('abc');
+    var name = 'cross';
+    var hello = 'hello';
+    // return 'abc';//自执行函数可以有返回值！！！
+    return {
+        name: function(n){
+            name = n;
+        },
+        sayhello: function(){
+            return `${hello}, ${name}!`;
+        }
+    }
+})();
 
-// const Messi = new person('Messi');
+console.log(person.sayhello());
 
-// function say(){
-//   console.log('hi');
-// }
+person.name('jae');// 可以修改自执行函数中的变量
 
-// const oldObj = {
-//   a: say,
-//   b: new Array(1),
-//   c: new RegExp('ab+c', 'i'),
-//   d: Messi
-// }
-
-// const newObj = JSON.parse(JSON.stringify(oldObj));
-// console.log(oldObj, newObj);
-function makeCounter() {
-  let count = 0;
- 
-  return function() {
-    return count++; // has access to the outer counter
-  };
- }
- 
- let counter = makeCounter();
- 
- console.log( counter() ); // 0
- console.log( counter() ); // 1
- console.log( counter() ); // 2
- 
-
+console.log(person.sayhello());
+console.log(person);
