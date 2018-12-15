@@ -1,9 +1,7 @@
 const http = require('http');
 const util = require('util');
 const url = require('url');
-// function a(){
-//   console.log('hello');
-// }
+
 //
 // var server = new http.Server();
 //

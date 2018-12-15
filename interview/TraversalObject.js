@@ -16,3 +16,4 @@ var originObj = {
 
 var newObj = Reflect.ownKeys(originObj);
 console.log(newObj)
+console.log(Object.keys(originObj))

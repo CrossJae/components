@@ -28,6 +28,7 @@ const server = http.createServer((req, res)=>{
 			res.end('</ul>');
 		})
 	}else{
+		// binary二进制编码读取，也可以用utf-8
 		fs.readFile(pathname, 'binary', (err, data)=>{
 			if(err){
 				res.writeHead(500, {'Content-Type': 'text/plain'});
