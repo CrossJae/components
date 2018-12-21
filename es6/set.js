@@ -1,3 +1,11 @@
+/*
+ * 总结：
+ * 增 - s.add(n)
+ * 查 - s.has(n)
+ * 改 - 转成数组之后使用map或者filter等操作，再赋值给之前的set对象
+ * 删 - s.delete(n)
+ */ 
+
 // 1. 基本用法
 const s = new Set(); // Set {}
 [2, 3, 5, 4, 5, 2, 2].map(x => s.add(x));
@@ -72,3 +80,4 @@ const union = new Set([...set81, ...set82]);
 const intersect = new Set([...set81].filter(x => set82.has(x)));
 const diff = new Set([...set81].filter(x => !set82.has(x)));
 console.log('set8并集交集差集 ::>', union, intersect, diff);
+
