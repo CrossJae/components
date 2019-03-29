@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <img src="http://pic3.16pic.com/00/54/55/16pic_5455232_b.jpg" alt="" />
+        <img src="https://b-ssl.duitang.com/uploads/item/201612/22/20161222234029_4Z2er.jpeg" alt="" />
+        <img src="http://b-ssl.duitang.com/uploads/item/201408/17/20140817000233_dkfyx.jpeg" alt="" />
+        <img src="http://imgsrc.baidu.com/imgad/pic/item/caef76094b36acaff9ce362876d98d1001e99c3c.jpg" alt="" />
+        <img src="http://a.hiphotos.baidu.com/zhidao/pic/item/b21bb051f81986186e4a73c641ed2e738bd4e667.jpg" alt="" />
+        <img src="http://i0.hdslb.com/video/8b/8bb248842ed67b00e3a9493775701830.jpg" alt="" />
+    </div>
+    <script>
+        // ready比onload先执行
+
+        // 页面资源加载完成执行
+        window.onload = function(){
+            alert('onload', new Date().getTime());
+
+        }
+        // dom tree加载完成执行
+        $(document).ready(function(){
+            alert('ready', new Date().getTime());
+        })
+    </script>
+</body>
+</html>
