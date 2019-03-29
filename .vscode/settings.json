@@ -1,0 +1,7 @@
+{
+  "search.location": "panel",
+  "debug.allowBreakpointsEverywhere": true,
+  "debug.inlineValues": true,
+  "debug.openDebug": "neverOpen",
+  "debug.toolBarLocation": "docked"
+}

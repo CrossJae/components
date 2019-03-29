@@ -1,10 +1,9 @@
-@testable
-class MyClass {
-
+// 节流
+function throttle(func, interval){
+  let identify = 0
+  return (...args) => {
+    if(identify) return
+    identify = setTimeout(() => identify = 0, interval)
+    func.apply(this, args)
+  }
 }
-
-function testable(target) {
-    // target代表的是被修饰的类？
-    target.isTestable = true;
-}
-console.log(MyClass.isTestable);
